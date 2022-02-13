@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataStructre
 {
@@ -13,8 +14,13 @@ namespace DataStructre
             Console.WriteLine("Reverse the String  : " + StringRevere("Remove Duplicate Value") + "\n");
 
             //SubString in string.
-            SubString("SubstringToFind");
-             
+            FindallSubString("SubstringToFind");
+
+            //TwoSumOptimized
+            int[] resultOfOptimized = TwoSumOptimized(new int[] { 1, 1, 2, 1, 1, 2 }, 4);
+            Console.WriteLine("------------------ Optimized Solution ------------------");
+            Console.WriteLine("--------- Time Complexity: O(n), Space complexity: O(n)   ---------");
+            Console.WriteLine(string.Join(" ", resultOfOptimized));
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -50,7 +56,7 @@ namespace DataStructre
             return returnString;
         }
 
-        static void SubString(string InputStrValue)
+        static void FindallSubString(string InputStrValue)
         {
             // Store the result in this string.
             string returnString = string.Empty;
@@ -68,6 +74,33 @@ namespace DataStructre
                 }
             }
             
+        }
+
+        //Integer array of Indices
+        static int[] TwoSumOptimized(int[] nums,int target)
+        {
+            //Declarations
+            int arrayLength = nums.Length;
+            Dictionary<int, int> resultDictionary = new();
+
+            //Validations
+            if (nums == null || arrayLength < 2)
+            {
+                return Array.Empty<int>();
+            }
+
+            //Logic
+            for (int i = 0; i < arrayLength; i++)
+            {
+                int firstNumber = nums[i];
+                int secondNumber = target - firstNumber;
+                if (resultDictionary.TryGetValue(secondNumber, out int index))
+                {
+                    return new[] { index, i };
+                }
+                resultDictionary[firstNumber] = i;
+            }
+            return Array.Empty<int>(); ;
         }
     }
 }
