@@ -6,8 +6,12 @@ namespace DataStructre
     {
         static void Main(string[] args)
         {
-
+            //Remove Duplicte in  String 
             Console.WriteLine("Remove the Duplicate Value : " + RemoveDuplicateCharsInString("Remove Duplicate Value"));
+
+            //Reverse String
+            Console.WriteLine("Reverse the String  : " + StringRevere("Remove Duplicate Value"));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -30,6 +34,18 @@ namespace DataStructre
                 }
             }
             return reValue;
+        }
+
+        static string StringRevere(string InputStrValue)
+        {
+            // Store the result in this string.
+            string returnString = string.Empty;
+            
+            for (int i = InputStrValue.Length - 1; i >= 0; i--)
+                returnString += InputStrValue[i];
+            
+
+            return returnString;
         }
     }
 }
