@@ -7,11 +7,14 @@ namespace DataStructre
         static void Main(string[] args)
         {
             //Remove Duplicte in  String 
-            Console.WriteLine("Remove the Duplicate Value : " + RemoveDuplicateCharsInString("Remove Duplicate Value"));
+            Console.WriteLine("Remove the Duplicate Value : " + RemoveDuplicateCharsInString("Remove Duplicate Value") + "\n");
 
             //Reverse String
-            Console.WriteLine("Reverse the String  : " + StringRevere("Remove Duplicate Value"));
+            Console.WriteLine("Reverse the String  : " + StringRevere("Remove Duplicate Value") + "\n");
 
+            //SubString in string.
+            SubString("SubstringToFind");
+             
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -44,8 +47,27 @@ namespace DataStructre
             for (int i = InputStrValue.Length - 1; i >= 0; i--)
                 returnString += InputStrValue[i];
             
-
             return returnString;
+        }
+
+        static void SubString(string InputStrValue)
+        {
+            // Store the result in this string.
+            string returnString = string.Empty;
+
+            Console.WriteLine("SubString.");
+
+            // Avoid full length.
+            for (int length = 1; length < InputStrValue.Length; length++)
+            {
+                // End index is tricky.
+                for (int start = 0; start <= InputStrValue.Length - length; start++)
+                {
+                    string substring = InputStrValue.Substring(start, length);
+                    Console.WriteLine(substring);
+                }
+            }
+            
         }
     }
 }
