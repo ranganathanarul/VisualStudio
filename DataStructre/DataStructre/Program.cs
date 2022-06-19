@@ -21,6 +21,11 @@ namespace DataStructre
             Console.WriteLine("------------------ Optimized Solution ------------------");
             Console.WriteLine("--------- Time Complexity: O(n), Space complexity: O(n)   ---------");
             Console.WriteLine(string.Join(" ", resultOfOptimized));
+
+            //Running Sum of 1d Array
+            int[] ArrayNums = new int[] { 1, 2, 3, 4 };
+            Console.WriteLine("Running Sum of 1d Array : " + string.Join(" , ",RunningSum(ArrayNums)) + "\n");
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -101,6 +106,18 @@ namespace DataStructre
                 resultDictionary[firstNumber] = i;
             }
             return Array.Empty<int>(); ;
+        }
+
+        static int[] RunningSum(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+                return null;
+
+            for (int iCount = 1; iCount < nums.Length; iCount++)
+            {
+                nums[iCount] += nums[iCount - 1];
+            }
+            return nums;
         }
     }
 }
