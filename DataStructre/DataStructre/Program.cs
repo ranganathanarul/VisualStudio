@@ -25,7 +25,10 @@ namespace DataStructre
 
             //Running Sum of 1d Array
             int[] ArrayNums = new int[] { 1, 2, 3, 4 };
-            Console.WriteLine("Running Sum of 1d Array : " + string.Join(" , ",RunningSum(ArrayNums)) + "\n");
+            Console.WriteLine("Running Sum of 1d Array : " + string.Join(" , ", RunningSum(ArrayNums)) + "\n");
+
+            string s = "egg", t = "add";
+            Console.WriteLine("Isomorphic Strings: " + (IsIsomorphic(s, t) ? "True" : "False") );
 
             Console.ReadLine();
         }
@@ -38,7 +41,7 @@ namespace DataStructre
             string reValue = string.Empty;
 
             // Loop over each character.
-            foreach ( char chrValue in inputStrValue)
+            foreach (char chrValue in inputStrValue)
             {
                 // See if character is in the table.
                 if (tble.IndexOf(chrValue) == -1)
@@ -55,10 +58,10 @@ namespace DataStructre
         {
             // Store the result in this string.
             string returnString = string.Empty;
-            
+
             for (int i = InputStrValue.Length - 1; i >= 0; i--)
                 returnString += InputStrValue[i];
-            
+
             return returnString;
         }
 
@@ -79,11 +82,11 @@ namespace DataStructre
                     Console.WriteLine(substring);
                 }
             }
-            
+
         }
 
         //Integer array of Indices
-        static int[] TwoSumOptimized(int[] nums,int target)
+        static int[] TwoSumOptimized(int[] nums, int target)
         {
             //Declarations
             int arrayLength = nums.Length;
@@ -129,9 +132,9 @@ namespace DataStructre
             int totalSum = nums.Sum();
             int leftsum = 0;
 
-            for(int iCount=0;iCount<nums.Length;iCount++)
+            for (int iCount = 0; iCount < nums.Length; iCount++)
             {
-                if((totalSum=(totalSum-nums[iCount]))==leftsum)
+                if ((totalSum = (totalSum - nums[iCount])) == leftsum)
                 {
                     return iCount;
                 }
@@ -144,5 +147,26 @@ namespace DataStructre
             return -1;
         }
 
+        static bool IsIsomorphic(string s, string t)
+        {
+            if (s == null || t == null || s.Length != t.Length)
+                return false;
+
+            var dictIsomorphic = new Dictionary<char, char>();
+
+            for (int iCount = 0; iCount < s.Length; iCount++)
+            {
+                if (!dictIsomorphic.ContainsKey(s[iCount]) && !dictIsomorphic.ContainsValue(t[iCount]))
+                {
+                    dictIsomorphic[s[iCount]] = t[iCount];
+                }
+                else if (!dictIsomorphic.ContainsKey(s[iCount]) || dictIsomorphic[s[iCount]] != t[iCount])
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
     }
 }
