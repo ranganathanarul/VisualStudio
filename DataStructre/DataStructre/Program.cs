@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructre
 {
@@ -119,5 +120,29 @@ namespace DataStructre
             }
             return nums;
         }
+
+        static int PivotIndex(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+                return 1;
+
+            int totalSum = nums.Sum();
+            int leftsum = 0;
+
+            for(int iCount=0;iCount<nums.Length;iCount++)
+            {
+                if((totalSum=(totalSum-nums[iCount]))==leftsum)
+                {
+                    return iCount;
+                }
+                else
+                {
+                    leftsum += nums[iCount];
+                }
+
+            }
+            return -1;
+        }
+
     }
 }
