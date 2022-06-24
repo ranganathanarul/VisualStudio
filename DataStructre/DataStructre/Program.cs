@@ -30,6 +30,10 @@ namespace DataStructre
             string s = "egg", t = "add";
             Console.WriteLine("Isomorphic Strings: " + (IsIsomorphic(s, t) ? "True" : "False") );
 
+            int[] nums = new int[] { -2,3,4,7,8,9,11,13 };
+            int target = 11;
+            Console.WriteLine("Search Value in Array : " + SearchIndex(nums,target).ToString());
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -166,6 +170,34 @@ namespace DataStructre
                 }
             }
             return true;
+
+        }
+
+        static int SearchIndex(int[] nums,int target)
+        {
+
+            if (nums == null || nums.Length == 0)
+                return 0;
+
+            //Declartion
+            int middle = 0, left = 0,right;
+
+            Array.Sort(nums);
+            
+            right = nums.Length - 1;
+
+            while(left<=right)
+            {
+                middle = (left + right) / 2;
+                if (nums[middle] == target)
+                    return middle;
+                else if (target < nums[middle])
+                    right = middle - 1;
+                else
+                    left = middle + 1;
+            }
+
+            return 0;
 
         }
     }

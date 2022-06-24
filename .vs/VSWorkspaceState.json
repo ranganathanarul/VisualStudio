@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataStructre",
+    "\\DataStructre\\DataStructre"
   ],
-  "SelectedNode": "\\DataStructre.sln",
+  "SelectedNode": "\\DataStructre\\DataStructre\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
