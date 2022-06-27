@@ -34,6 +34,9 @@ namespace DataStructre
             int target = 11;
             Console.WriteLine("Search Value in Array : " + SearchIndex(nums,target).ToString());
 
+            string sn = "82734";
+            Console.WriteLine("Decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros : " + MinPartitions(sn));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -199,6 +202,22 @@ namespace DataStructre
 
             return 0;
 
+        }
+
+        static int MinPartitions(string n)
+        {
+            if (n == null || n.Length == 0)
+                return -1;
+
+            int numberResult = 0;
+
+            for (int iCount = 0; iCount < n.Length; iCount++)
+            {
+                numberResult = Math.Max(numberResult, n[iCount] - '0');
+                if (numberResult == 9) return numberResult;
+            }
+
+            return numberResult;
         }
     }
 }
