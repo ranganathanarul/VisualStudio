@@ -37,6 +37,14 @@ namespace DataStructre
             string sn = "82734";
             Console.WriteLine("Decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros : " + MinPartitions(sn));
 
+            int[][] boxTypes = new int[][] { 
+                    new int[] { 1, 2, 3 },
+                    new int[] { 3, 2, 1 },
+                };
+            int targetsize = 4;
+            Console.WriteLine(" Maximum Units on a Truck : " + MaximumUnits(boxTypes, targetsize));
+
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -218,6 +226,33 @@ namespace DataStructre
             }
 
             return numberResult;
+        }
+
+        static int MaximumUnits(int[][] boxTypes, int truckSize)
+        {
+            //Null check 
+            if (boxTypes == null || boxTypes.Length == 0)
+                return -1;
+
+            //Declartion
+            int size = 0, units = 0;
+
+            //Loop the array
+            foreach (var boxType in boxTypes.OrderByDescending(bt => bt[1]))
+            {
+                if (size + boxType[0] < truckSize)
+                {
+                    units += boxType[0] * boxType[1];
+                    size += boxType[0];
+                }
+                else
+                {
+                    units += (truckSize - size) * boxType[1];
+                    break;
+                }
+
+            }
+            return units;
         }
     }
 }
