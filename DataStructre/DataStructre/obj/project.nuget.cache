@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BMRi5TAcU9MrUMGOnxpcySV+XUARJbvKkHAm9JLxxCXNVJ1/zK9rDVgFwWEN7+p56MsRjJ3c+TP/bLLF5kZZgA==",
+  "dgSpecHash": "Nfl+K2DxpBx1mOqnx3wxZaCQ8tNGjo3OBYs6GaYr6WoFLvKnEJzrNXfoEFSrdNMK+RRbtxxbKu9RYDtdNQzP4Q==",
   "success": true,
-  "projectFilePath": "C:\\Personal Folder\\VisualStudio\\Sample\\DataStructre\\DataStructre\\DataStructre.csproj",
+  "projectFilePath": "C:\\Personal Folder\\VisualStudio\\DataStructures\\DataStructre\\DataStructre\\DataStructre.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
