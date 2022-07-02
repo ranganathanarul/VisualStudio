@@ -44,6 +44,8 @@ namespace DataStructre
             int targetsize = 4;
             Console.WriteLine(" Maximum Units on a Truck : " + MaximumUnits(boxTypes, targetsize));
 
+            int[] sortArray = new int[] { 3, 4, 7, -1, 9, 0, 2, 1 };
+            Console.WriteLine("Array Sort : " + string.Join(" , ", arraySortInteger(sortArray)));
 
             Console.ReadLine();
         }
@@ -253,6 +255,28 @@ namespace DataStructre
 
             }
             return units;
+        }
+
+        static int[] arraySortInteger(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+                return nums;
+
+            int temp = 0;
+
+            for (int icount = 0; icount <= nums.Length - 1; icount++)
+            {
+                for (int jcount = icount + 1; jcount < nums.Length; jcount++)
+                {
+                    if (nums[icount] > nums[jcount])
+                    {
+                        temp = nums[icount];
+                        nums[icount] = nums[jcount];
+                        nums[jcount] = temp;
+                    }
+                }
+            }
+            return nums;
         }
     }
 }
