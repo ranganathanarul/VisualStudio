@@ -47,6 +47,9 @@ namespace DataStructre
             int[] sortArray = new int[] { 3, 4, 7, -1, 9, 0, 2, 1 };
             Console.WriteLine("Array Sort : " + string.Join(" , ", arraySortInteger(sortArray)));
 
+            int ValBinary = 1041;
+            Console.WriteLine("Binary Gap: " + BinaryGap(ValBinary));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -277,6 +280,30 @@ namespace DataStructre
                 }
             }
             return nums;
+        }
+        
+        static int BinaryGap(int N)
+        {
+            if (N == 0)
+                return N;
+
+            //Declaration
+            int count = 0, maxCount = 0;
+            var nums = Convert.ToString(N,2);
+
+            for(int iCount=0;iCount<nums.Length;iCount++)
+            {
+                if(nums[iCount]=='0')
+                {
+                    count++;
+                }
+                else
+                {
+                    maxCount = Math.Max(maxCount, count);
+                    count = 0;
+                }
+            }
+            return maxCount;
         }
     }
 }

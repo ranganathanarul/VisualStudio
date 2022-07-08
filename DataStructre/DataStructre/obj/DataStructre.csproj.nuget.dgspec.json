@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Personal Folder\\VisualStudio\\Structre\\DataStructre\\DataStructre\\DataStructre.csproj": {}
+    "C:\\Personal Folder\\VisualStudio\\DataStructre\\DataStructre\\DataStructre.csproj": {}
   },
   "projects": {
-    "C:\\Personal Folder\\VisualStudio\\Structre\\DataStructre\\DataStructre\\DataStructre.csproj": {
+    "C:\\Personal Folder\\VisualStudio\\DataStructre\\DataStructre\\DataStructre.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal Folder\\VisualStudio\\Structre\\DataStructre\\DataStructre\\DataStructre.csproj",
+        "projectUniqueName": "C:\\Personal Folder\\VisualStudio\\DataStructre\\DataStructre\\DataStructre.csproj",
         "projectName": "DataStructre",
-        "projectPath": "C:\\Personal Folder\\VisualStudio\\Structre\\DataStructre\\DataStructre\\DataStructre.csproj",
+        "projectPath": "C:\\Personal Folder\\VisualStudio\\DataStructre\\DataStructre\\DataStructre.csproj",
         "packagesPath": "C:\\Users\\ranga\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal Folder\\VisualStudio\\Structre\\DataStructre\\DataStructre\\obj\\",
+        "outputPath": "C:\\Personal Folder\\VisualStudio\\DataStructre\\DataStructre\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
