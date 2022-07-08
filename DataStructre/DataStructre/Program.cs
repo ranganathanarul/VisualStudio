@@ -50,6 +50,10 @@ namespace DataStructre
             int ValBinary = 1041;
             Console.WriteLine("Binary Gap: " + BinaryGap(ValBinary));
 
+            int[] arrNumbs = new int[] { 3, 8, 9, 7, 6 };
+            int K = 3;
+            Console.WriteLine("CyclicRotation : " + string.Join(" , ",CyclicRotation(arrNumbs,K)));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -304,6 +308,28 @@ namespace DataStructre
                 }
             }
             return maxCount;
+        }
+
+        static int[] CyclicRotation(int[] A,int k)
+        {
+            if (A == null || A.Length == 0)
+                return A;
+          
+            for(int jCount=0; jCount < k; jCount++)
+            {
+                var current = A[0];
+                var next = A[1];
+                for (int iCount = 0; iCount < A.Length - 1; iCount++)
+                {
+                    next = A[iCount + 1];
+                    A[iCount + 1] = current;
+                    current = next;
+                }
+
+                A[0] = next;
+            }
+
+            return A;
         }
     }
 }
