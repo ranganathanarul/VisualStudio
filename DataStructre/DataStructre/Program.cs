@@ -57,6 +57,9 @@ namespace DataStructre
             int[] numsArray = new int[] { 9,3,9,3,9,7,9};
             Console.WriteLine("Find value that occurs in odd number of elements. : " + OddOccurrencesInArray(numsArray));
 
+            int X = 10, Y = 85, D = 30;
+            Console.WriteLine("FrogJmp - Count minimal number of jumps from position X to Y. : " + solutionFrogJmp(X,Y,D));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -347,6 +350,17 @@ namespace DataStructre
             }
 
             return resultXor;
+        }
+
+        static int solutionFrogJmp(int X,int Y,int D)
+        {
+            int iCount = 0;
+            while(X<Y)
+            {
+                X += D;
+                iCount++;
+            }
+            return iCount;
         }
     }
 }
