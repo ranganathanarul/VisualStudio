@@ -355,6 +355,7 @@ namespace DataStructre
         static int solutionFrogJmp(int X,int Y,int D)
         {
             int iCount = 0;
+
             while(X<Y)
             {
                 X += D;
