@@ -54,6 +54,9 @@ namespace DataStructre
             int K = 3;
             Console.WriteLine("CyclicRotation : " + string.Join(" , ",CyclicRotation(arrNumbs,K)));
 
+            int[] numsArray = new int[] { 9,3,9,3,9,7,9};
+            Console.WriteLine("Find value that occurs in odd number of elements. : " + OddOccurrencesInArray(numsArray));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -330,6 +333,20 @@ namespace DataStructre
             }
 
             return A;
+        }
+
+        static int OddOccurrencesInArray(int[] nums)
+        {
+            if (nums.Length == 0)
+                return 0;
+
+            int resultXor = nums[0];
+            for(int iCount=1;iCount<nums.Length;iCount++)
+            {
+                resultXor ^= nums[iCount];
+            }
+
+            return resultXor;
         }
     }
 }
