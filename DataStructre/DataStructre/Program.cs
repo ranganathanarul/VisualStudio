@@ -60,7 +60,11 @@ namespace DataStructre
             int X = 10, Y = 85, D = 30;
             Console.WriteLine("FrogJmp - Count minimal number of jumps from position X to Y. : " + solutionFrogJmp(X,Y,D));
 
-            Console.ReadLine();
+            int[] missingElement = new int[] { 2, 3, 1, 5 };
+            Console.WriteLine(" PermMissingElem - Find the missing element in a given permutation. : " + PermMissingElemSolution(missingElement));
+
+
+           Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
         {
@@ -362,6 +366,21 @@ namespace DataStructre
                 iCount++;
             }
             return iCount;
+        }
+
+        static int PermMissingElemSolution(int[] A)
+        {
+            if (A.Length == 0)
+                return 0;
+
+            int missingElement = A[0] ^ 1;
+
+            for (int icount=1;icount<A.Length;icount++)
+            {
+                missingElement ^=  A[icount] ^ (icount + 1);
+            }
+
+            return missingElement ^ (A.Length + 1);
         }
     }
 }
