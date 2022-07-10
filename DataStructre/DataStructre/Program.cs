@@ -63,8 +63,10 @@ namespace DataStructre
             int[] missingElement = new int[] { 2, 3, 1, 5 };
             Console.WriteLine(" PermMissingElem - Find the missing element in a given permutation. : " + PermMissingElemSolution(missingElement));
 
+            int[] numArrayTape = new int[] { 3,1,2,4,3 };
+            Console.WriteLine(" TapeEquilibrium - Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|. : " + TapeEquilibriumSolutions(numsArray));
 
-           Console.ReadLine();
+            Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
         {
@@ -381,6 +383,35 @@ namespace DataStructre
             }
 
             return missingElement ^ (A.Length + 1);
+        }
+
+        static int TapeEquilibriumSolutions(int[] numsArray)
+        {
+            if (numsArray.Length == 0)
+                return 0;
+
+            int totalSum = 0, sumTillCurrentIndex = numsArray[0];
+            for (int iCount = 0; iCount < numsArray.Length; iCount++)
+            {
+                totalSum += numsArray[iCount];
+            }
+
+            var minDifference = Math.Abs(numsArray[0] - (totalSum - numsArray[0]));
+            totalSum -= numsArray[0];
+
+
+            for (int jCount = 2; jCount <= numsArray.Length; jCount++)
+            {
+                sumTillCurrentIndex += numsArray[jCount - 1];
+                totalSum -= numsArray[jCount - 1];
+
+                if (minDifference > Math.Abs(totalSum - sumTillCurrentIndex))
+                {
+                    minDifference = Math.Abs(totalSum - sumTillCurrentIndex);
+                }
+            }
+
+            return minDifference;
         }
     }
 }
