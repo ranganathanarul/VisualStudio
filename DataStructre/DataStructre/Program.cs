@@ -32,39 +32,43 @@ namespace DataStructre
 
             int[] nums = new int[] { -2,3,4,7,8,9,11,13 };
             int target = 11;
-            Console.WriteLine("Search Value in Array : " + SearchIndex(nums,target).ToString());
+            Console.WriteLine("Search Value in Array : " + SearchIndex(nums,target).ToString() + "\r\n");
 
             string sn = "82734";
-            Console.WriteLine("Decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros : " + MinPartitions(sn));
+            Console.WriteLine("Decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros : " + MinPartitions(sn) + "\r\n");
 
             int[][] boxTypes = new int[][] { 
                     new int[] { 1, 2, 3 },
                     new int[] { 3, 2, 1 },
                 };
             int targetsize = 4;
-            Console.WriteLine(" Maximum Units on a Truck : " + MaximumUnits(boxTypes, targetsize));
+            Console.WriteLine(" Maximum Units on a Truck : " + MaximumUnits(boxTypes, targetsize) + "\r\n");
 
             int[] sortArray = new int[] { 3, 4, 7, -1, 9, 0, 2, 1 };
-            Console.WriteLine("Array Sort : " + string.Join(" , ", arraySortInteger(sortArray)));
+            Console.WriteLine("Array Sort : " + string.Join(" , ", arraySortInteger(sortArray)) + "\r\n");
 
             int ValBinary = 1041;
-            Console.WriteLine("Binary Gap: " + BinaryGap(ValBinary));
+            Console.WriteLine("Binary Gap: " + BinaryGap(ValBinary) + "\r\n");
 
             int[] arrNumbs = new int[] { 3, 8, 9, 7, 6 };
             int K = 3;
-            Console.WriteLine("CyclicRotation : " + string.Join(" , ",CyclicRotation(arrNumbs,K)));
+            Console.WriteLine("CyclicRotation : " + string.Join(" , ",CyclicRotation(arrNumbs,K)) + "\r\n");
 
             int[] numsArray = new int[] { 9,3,9,3,9,7,9};
-            Console.WriteLine("Find value that occurs in odd number of elements. : " + OddOccurrencesInArray(numsArray));
+            Console.WriteLine("Find value that occurs in odd number of elements. : " + OddOccurrencesInArray(numsArray) + "\r\n");
 
             int X = 10, Y = 85, D = 30;
-            Console.WriteLine("FrogJmp - Count minimal number of jumps from position X to Y. : " + solutionFrogJmp(X,Y,D));
+            Console.WriteLine("FrogJmp - Count minimal number of jumps from position X to Y. : " + solutionFrogJmp(X,Y,D) + "\r\n");
 
             int[] missingElement = new int[] { 2, 3, 1, 5 };
-            Console.WriteLine(" PermMissingElem - Find the missing element in a given permutation. : " + PermMissingElemSolution(missingElement));
+            Console.WriteLine(" PermMissingElem - Find the missing element in a given permutation. : " + PermMissingElemSolution(missingElement) + "\r\n");
 
             int[] numArrayTape = new int[] { 3,1,2,4,3 };
-            Console.WriteLine(" TapeEquilibrium - Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|. : " + TapeEquilibriumSolutions(numsArray));
+            Console.WriteLine(" TapeEquilibrium - Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|. : " + TapeEquilibriumSolutions(numsArray) + "\r\n");
+
+            //Container With Most Water - You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+            int[] heights = new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
+            Console.WriteLine(" Container With Most Water - You are given an integer array height of length n  : " + ContainerWithMostWater(heights) + "\r\n");
 
             Console.ReadLine();
         }
@@ -412,6 +416,36 @@ namespace DataStructre
             }
 
             return minDifference;
+        }
+
+        static int ContainerWithMostWater(int[] height)
+        {
+            //Container With Most Water
+            if (height.Length == 0)
+                return 0;
+
+            //Declaration Left & Right
+            int maxResult = 0, left = 0, right = height.Length - 1;
+
+            // Array Left and Right
+            while(left < right)
+            {
+                if(height[left] < height[right])
+                {
+                    //Find out the index
+                    var arrayIndex = Math.Min(height[right],height[left])*(right-left);
+                    maxResult = Math.Max(maxResult, arrayIndex);
+                    left++;
+                }
+                else
+                {
+                    //Find out the index
+                    var arrayIndex = Math.Min(height[right], height[left]) * (right - left);
+                    maxResult = Math.Max(maxResult, arrayIndex);
+                    right--;
+                }
+            }
+            return maxResult;
         }
     }
 }
