@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace DataStructre
 {
@@ -65,6 +66,9 @@ namespace DataStructre
 
             int[] numArrayTape = new int[] { 3,1,2,4,3 };
             Console.WriteLine(" TapeEquilibrium - Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|. : " + TapeEquilibriumSolutions(numsArray));
+
+            string strValue = "a1c1e1";
+            Console.WriteLine("You are given a 0-indexed string s that has lowercase English letters in its even indices and digits in its odd indices : " + ReplaceDigits(strValue));
 
             Console.ReadLine();
         }
@@ -413,5 +417,24 @@ namespace DataStructre
 
             return minDifference;
         }
+
+        //Replace All Digits with Characters
+        static string ReplaceDigits(string s)
+        {
+            if (s.Length < 0)
+                throw new ArgumentException("Input string is not Valid");
+
+            StringBuilder sBuilder = new StringBuilder();
+            for (int iCount = 0; iCount < s.Length; iCount++)
+            {
+                if (iCount % 2 == 0)
+                    sBuilder.Append(s[iCount]);
+                else
+                    sBuilder.Append(Convert.ToChar(s[iCount - 1] - '0' + Convert.ToInt32(s[iCount])));
+            }
+
+            return sBuilder.ToString();
+        }
+
     }
 }

@@ -125,3 +125,4 @@ C:\Personal Folder\VisualStudio\DataStrcuture\DataStructre\DataStructre\obj\Debu
 C:\Personal Folder\VisualStudio\DataStrcuture\DataStructre\DataStructre\obj\Debug\net5.0\ref\DataStructre.dll
 C:\Personal Folder\VisualStudio\DataStrcuture\DataStructre\DataStructre\obj\Debug\net5.0\DataStructre.pdb
 C:\Personal Folder\VisualStudio\DataStrcuture\DataStructre\DataStructre\obj\Debug\net5.0\DataStructre.genruntimeconfig.cache
+C:\Personal Folder\VisualStudio\DataStructures\DataStructre\DataStructre\obj\Debug\net5.0\DataStructre.csproj.AssemblyReference.cache
