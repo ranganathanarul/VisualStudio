@@ -70,6 +70,10 @@ namespace DataStructre
             int[] heights = new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
             Console.WriteLine(" Container With Most Water - You are given an integer array height of length n  : " + ContainerWithMostWater(heights) + "\r\n");
 
+            //20. Valid Parentheses
+            s = "(]";
+            Console.WriteLine(" 20. Valid Parentheses  : " + IsValid(s) + "\r\n");
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -446,6 +450,27 @@ namespace DataStructre
                 }
             }
             return maxResult;
+        }
+        static bool IsValid(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return false;
+
+            Stack<char> stValue = new Stack<char>();
+
+            foreach(var items in s.ToCharArray())
+            {
+                if (items == '(')
+                    stValue.Push(')');
+                else if (items == '{')
+                    stValue.Push('}');
+                else if (items == '[')
+                    stValue.Push(']');
+                else if (stValue.Count == 0 || stValue.Pop() != items)
+                    return false;
+              
+            }
+            return stValue.Count == 0;
         }
     }
 }
