@@ -74,6 +74,10 @@ namespace DataStructre
             s = "(]";
             Console.WriteLine(" 20. Valid Parentheses  : " + IsValid(s) + "\r\n");
 
+            //2390. Removing Stars From a String
+            string strValue = "leet**cod*e";
+            Console.WriteLine(" 2390. Removing Stars From a String : " + RemoveStars(strValue) + "\r\n");
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -472,5 +476,36 @@ namespace DataStructre
             }
             return stValue.Count == 0;
         }
+
+        static string RemoveStars(string s)
+        {
+            //Check input string is null/empty
+            if (string.IsNullOrEmpty(s))
+                return new ArgumentException(string.Format("{0} is not valid string", s)).ToString();
+
+            //Declaration
+            Stack<char> stValue = new Stack<char>();
+
+            //Iterate the input string 
+            foreach (char item in s.ToCharArray())
+            {
+                if (!s.Any())
+                {
+                    stValue.Push(item);
+                }
+                else
+                {
+                    if (item == '*')
+                        stValue.Pop();
+                    else
+                        stValue.Push(item);
+                }
+            }
+            //Convert to stack to array and print the array value.
+            char[] charArrayValue = stValue.ToArray();
+            Array.Reverse(charArrayValue);
+            return new string(charArrayValue);
+        }
+
     }
 }
