@@ -81,7 +81,11 @@ namespace DataStructre
 
             //71.Simplify Path
             string path = "/../";
-            Console.WriteLine(" 71. Simplify Path =" + SimplifyPath(path));
+            Console.WriteLine(" 71. Simplify Path =" + SimplifyPath(path) + "\r\n");
+
+            int[] pushed = new int[] { 1, 2, 3, 4, 5 };
+            int[] popped = new int[] { 4, 5, 3, 2, 1 };
+            Console.WriteLine("946. Validate Stack Sequences : " + ValidateStackSequences(pushed,popped) + "\r\n");
 
             Console.ReadLine();
         }
@@ -542,5 +546,27 @@ namespace DataStructre
             return slash + string.Join(slash, dirList);
         }
 
+        static bool ValidateStackSequences(int[] pushed, int[] popped)
+        {
+            //Check the array are equal
+            if (pushed.Length != popped.Length)
+                return false;
+
+            //Declare the stack value.
+            Stack<int> number_stack = new Stack<int>();
+            int jCount = 0;
+
+            foreach(int iCount in pushed)
+            {
+                number_stack.Push(iCount);
+                while(number_stack.Count > 0 && jCount < popped.Length && number_stack.Peek() == popped[jCount])
+                {
+                    number_stack.Pop();
+                    jCount++;
+                }
+            }
+
+            return jCount == popped.Length;
+        }
     }
 }
