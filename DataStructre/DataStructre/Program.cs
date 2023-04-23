@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace DataStructre
@@ -77,6 +78,10 @@ namespace DataStructre
             //2390. Removing Stars From a String
             string strValue = "leet**cod*e";
             Console.WriteLine(" 2390. Removing Stars From a String : " + RemoveStars(strValue) + "\r\n");
+
+            //71.Simplify Path
+            string path = "/../";
+            Console.WriteLine(" 71. Simplify Path =" + SimplifyPath(path));
 
             Console.ReadLine();
         }
@@ -505,6 +510,36 @@ namespace DataStructre
             char[] charArrayValue = stValue.ToArray();
             Array.Reverse(charArrayValue);
             return new string(charArrayValue);
+        }
+
+        static string SimplifyPath(string path)
+        {
+            //First check is null or empty.
+            if (string.IsNullOrEmpty(path))
+                return new ArgumentException(string.Format("{0} is not null or empty.")).ToString();
+
+            //Declaration of the variable 
+            var slash = "/";
+            var dirs = path.Split(slash);
+            var dirList = new List<string>();
+
+            //Loop the check the value is present or not.
+            foreach(var dir in dirs)
+            {
+                if(dir.Equals(".."))
+                {
+                    if(dirList.Count >0)
+                        dirList.RemoveAt(dirList.Count - 1);
+                }
+                else if(!string.IsNullOrEmpty(dir))
+                {
+                    if (!dir.Equals("."))
+                        dirList.Add(dir);
+                }
+            }
+
+            //List and slash values
+            return slash + string.Join(slash, dirList);
         }
 
     }
