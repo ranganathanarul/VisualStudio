@@ -83,9 +83,14 @@ namespace DataStructre
             string path = "/../";
             Console.WriteLine(" 71. Simplify Path =" + SimplifyPath(path) + "\r\n");
 
+            //946. Validate Stack Sequences
             int[] pushed = new int[] { 1, 2, 3, 4, 5 };
             int[] popped = new int[] { 4, 5, 3, 2, 1 };
-            Console.WriteLine("946. Validate Stack Sequences : " + ValidateStackSequences(pushed,popped) + "\r\n");
+            Console.WriteLine(" 946. Validate Stack Sequences : " + ValidateStackSequences(pushed,popped) + "\r\n");
+
+            //258. Add Digits
+            int num = 38;
+            Console.WriteLine(" 258. Add Digits numbers : " + AddDigits(num) + "\r\n");
 
             Console.ReadLine();
         }
@@ -568,5 +573,27 @@ namespace DataStructre
 
             return jCount == popped.Length;
         }
+
+        static int AddDigits(int num)
+        {
+            //First check is null/empty
+            if (string.IsNullOrEmpty(num.ToString()))
+                return 0;
+
+            while(num/10!=0)
+            {
+                // Assign the values
+                int fullnumber = num;
+                num = 0;
+                while(fullnumber>0)
+                {
+                    num += fullnumber % 10;
+                    fullnumber /= 10;
+                }
+            }
+
+            return num;
+        }
+
     }
 }
