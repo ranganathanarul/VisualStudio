@@ -594,6 +594,13 @@ namespace DataStructre
 
             return num;
         }
+        static int BulbSwitch(int n)
+        {
+                if (string.IsNullOrEmpty(n.ToString()))
+                    return n;
+
+                return (int)Math.Sqrt(n);
+        }
 
     }
 }
