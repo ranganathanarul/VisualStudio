@@ -92,6 +92,10 @@ namespace DataStructre
             int num = 38;
             Console.WriteLine(" 258. Add Digits numbers : " + AddDigits(num) + "\r\n");
 
+            //1491. Average Salary Excluding the Minimum and Maximum Salary
+            int[] salary = new int[] { 4000, 3000, 1000, 2000 };
+            Console.WriteLine(" 1491. Average Salary Excluding the Minimum and Maximum Salary : " + Average(salary));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -600,6 +604,33 @@ namespace DataStructre
                     return n;
 
                 return (int)Math.Sqrt(n);
+        }
+
+        static double Average(int[] salary)
+        {
+            //Check if input array was null/empty
+            if (salary == null)
+                return Convert.ToDouble(0);
+
+            //Declare local variables
+            double results = 0.0;
+
+            //First check less than are equal to 2 
+            if (salary.Length <= 2)
+                return results;
+
+            //Sort the array
+            Array.Sort(salary);
+
+            //Check the input array length has equal to 3
+            if (salary.Length == 3)
+                return salary[1];
+
+            //Loop through the count of the value 
+            for (int iCount = 1; iCount < salary.Length - 1; iCount++)
+                results += salary[iCount];
+
+            return (results / (salary.Length - 2));
         }
 
     }
