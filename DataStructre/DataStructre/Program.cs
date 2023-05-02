@@ -94,7 +94,11 @@ namespace DataStructre
 
             //1491. Average Salary Excluding the Minimum and Maximum Salary
             int[] salary = new int[] { 4000, 3000, 1000, 2000 };
-            Console.WriteLine(" 1491. Average Salary Excluding the Minimum and Maximum Salary : " + Average(salary));
+            Console.WriteLine(" 1491. Average Salary Excluding the Minimum and Maximum Salary : " + Average(salary) + "\r\n");
+
+            //1822. Sign of the Product of an Array
+            int[] numsArry = new int[] { -1, -2, -3, -4, 3, 2, 1 };
+            Console.WriteLine("1822. Sign of the Product of an Array : " + ArraySign(numsArry) + "\r\n");
 
             Console.ReadLine();
         }
@@ -631,6 +635,35 @@ namespace DataStructre
                 results += salary[iCount];
 
             return (results / (salary.Length - 2));
+        }
+
+        //1822. Sign of the Product of an Array
+        static int ArraySign(int[] nums)
+        {
+            //Check if null
+            if (nums == null)
+                return 0;
+
+            int result = 1;
+
+            //Looping the value in numbers
+           foreach(var num in nums)
+            {
+                if (num == 0)
+                {
+                    return 0;
+                }
+                else if (num < 0)
+                {
+                    result *= -1;
+                }
+                else
+                {
+                    result *= 1;
+                }
+            }
+
+            return result;
         }
 
     }
