@@ -100,6 +100,14 @@ namespace DataStructre
             int[] numsArry = new int[] { -1, -2, -3, -4, 3, 2, 1 };
             Console.WriteLine("1822. Sign of the Product of an Array : " + ArraySign(numsArry) + "\r\n");
 
+            //2215. Find the Difference of Two Arrays
+            int[] nums1 = new int[] { 1, 2, 3 };
+            int[] nums2 = new int[] { 2, 4, 6 };
+            foreach( var Obj in FindDifference(nums1, nums2).SelectMany(lValue=> lValue.Select(obj => obj)))
+            {
+                Console.WriteLine("2215. Find the Difference of Two Arrays :  " + Obj);
+            }
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -664,6 +672,35 @@ namespace DataStructre
             }
 
             return result;
+        }
+
+        //2215. Find the Difference of Two Arrays
+        static IList<IList<int>> FindDifference(int[] nums1, int[] nums2)
+        {
+            //Find the difference of the array
+            IList<IList<int>> result = new List<IList<int>>();
+
+            //Hashset Declaration
+            HashSet<int> set1 = new HashSet<int>();
+            HashSet<int> set2 = new HashSet<int>();
+
+            //First Loop to check 
+            for (int iCount = 0; iCount < nums1.Length; iCount++)
+                if (!nums2.Contains(nums1[iCount]))
+                    set1.Add(nums1[iCount]);
+
+            //Second Loop to check 
+            for (int jCount = 0; jCount < nums2.Length; jCount++)
+                if (!nums1.Contains(nums2[jCount]))
+                    set2.Add(nums2[jCount]);
+
+            //Add to the List 
+            result.Add(set1.ToList());
+            result.Add(set2.ToList());
+
+            //Return the results
+            return result;
+
         }
 
     }
