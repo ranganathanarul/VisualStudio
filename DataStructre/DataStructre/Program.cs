@@ -108,6 +108,10 @@ namespace DataStructre
                 Console.WriteLine("2215. Find the Difference of Two Arrays :  " + Obj);
             }
 
+            //649. Dota2 Senate
+            string senate = "RD";
+            Console.WriteLine("\r\n" + "649. Dota2 Senate : " + PredictPartyVictory(senate));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -701,6 +705,61 @@ namespace DataStructre
             //Return the results
             return result;
 
+        }
+
+        //649. Dota2 Senate
+        static string PredictPartyVictory(string senate)
+        {
+            if (senate == null)
+                return null;
+
+            List<char> current = new List<char>(senate);
+
+            for (int d = 0, r = 0; ;)
+            {
+                if (current.All(cValue => cValue == 'R'))
+                    return "Radiant";
+                if (current.All(cValue => cValue == 'C'))
+                    return "Dire";
+
+                List<char> list = new();
+
+                for (int iCount = 0; iCount < senate.Length; iCount++)
+                {
+                    char man = current[iCount];
+
+                    if (man == 'R')
+                        if (d > 0)
+                            d -= 1;
+                        else
+                        {
+                            r += 1;
+                            list.Add('R');
+                        }
+                    else if (r > 0)
+                        r -= 1;
+                    else
+                    {
+                        d += 1;
+                        list.Add('D');
+                    }
+                }
+                current.Clear();
+
+                for (int jCount = 0; jCount < list.Count; ++jCount)
+                {
+                    if (list[jCount] == 'D')
+                        if (r > 0)
+                            r -= 1;
+                        else
+                            current.Add('D');
+                    else if (d > 0)
+                        d -= 1;
+                    else
+                        current.Add('R');
+                }
+
+            }
         }
 
     }
