@@ -112,6 +112,10 @@ namespace DataStructre
             string senate = "RD";
             Console.WriteLine("\r\n" + "649. Dota2 Senate : " + PredictPartyVictory(senate));
 
+            //1456. Maximum Number of Vowels in a Substring of Given Length
+            string sValues = "abciiidef"; int k = 3;
+            Console.WriteLine("\r\n" + "1456. Maximum Number of Vowels in a Substring of Given Length : " + MaxVowels(sValues,k));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -760,6 +764,39 @@ namespace DataStructre
                 }
 
             }
+        }
+
+        //1456. Maximum Number of Vowels in a Substring of Given Length
+        static int MaxVowels(string s, int k)
+        {
+            //Check the value is null or empty
+            if (string.IsNullOrEmpty(s))
+                return 0;
+
+            //Declare the values 
+            int ansValue = 0, cuntValue = 0;
+
+            //Loop the values
+            for (int iCount=0,jCount=0; iCount < s.Length; iCount++)
+            {
+                if (IsVowel(s[iCount]))
+                    cuntValue++;
+                
+                if(iCount - jCount + 1 == k)
+                {
+                    ansValue=Math.Max(ansValue,cuntValue);
+                    if (IsVowel(s[jCount++]))
+                    {
+                        cuntValue--;
+                    }
+                }
+            }
+            return ansValue;
+        }
+
+        public static bool IsVowel(char chr)
+        {
+            return chr == 'a' || chr == 'e' || chr == 'i' || chr == 'o' || chr == 'u';
         }
 
     }
