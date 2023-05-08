@@ -116,6 +116,15 @@ namespace DataStructre
             string sValues = "abciiidef"; int k = 3;
             Console.WriteLine("\r\n" + "1456. Maximum Number of Vowels in a Substring of Given Length : " + MaxVowels(sValues,k));
 
+            int[][] mat = new int[][]
+            {
+                new int[]{1,2,3},
+                new int[]{4,5,6},
+                new int[]{7,8,9},
+            };
+
+            Console.WriteLine("\r\n" + "1572. Matrix Diagonal Sum : " + DiagonalSum(mat));
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -799,5 +808,22 @@ namespace DataStructre
             return chr == 'a' || chr == 'e' || chr == 'i' || chr == 'o' || chr == 'u';
         }
 
+        //1572. Matrix Diagonal Sum
+        static int DiagonalSum(int[][] mat)
+        {
+            // Input Value check 
+            if (mat==null || mat.Length == 0)
+                return 0;
+
+            //Decalaration
+            int nCount = mat.Length;
+            int resultsValue = 0;
+
+            //Loop to check the value
+            for (int iCount = 0; iCount < mat.Length; iCount++)
+                resultsValue += mat[iCount][iCount] + mat[iCount][mat.Length - 1 - iCount];
+
+            return mat.Length % 2 == 1 ? resultsValue - mat[mat.Length / 2][mat.Length / 2] : resultsValue;
+        }
     }
 }
