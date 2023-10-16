@@ -125,6 +125,9 @@ namespace DataStructre
 
             Console.WriteLine("\r\n" + "1572. Matrix Diagonal Sum : " + DiagonalSum(mat));
 
+            int rowIndex = 0;
+            Console.WriteLine("\r\n" + "119. Pascal's Triangle II : [" + String.Join(",",GetRow(rowIndex)) + "]");
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -825,5 +828,28 @@ namespace DataStructre
 
             return mat.Length % 2 == 1 ? resultsValue - mat[mat.Length / 2][mat.Length / 2] : resultsValue;
         }
+
+        //119. Pascal's Triangle II
+        static IList<int> GetRow(int rowIndex)
+        {
+            if(rowIndex <0)
+                return null;
+            //Declare the return Value
+            IList<int> rows = new List<int>();
+
+            for(int iCount=0; iCount <= rowIndex; iCount++)
+            {
+                rows.Add(1);
+
+                for(int jCount= iCount - 1;jCount>0;jCount--)
+                {
+                    rows[jCount] += rows[jCount - 1];
+                }
+
+            }
+
+            return rows;
+        }
+
     }
 }
