@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace DataStructre
 {
@@ -128,7 +129,12 @@ namespace DataStructre
             int rowIndex = 0;
             Console.WriteLine("\r\n" + "119. Pascal's Triangle II : [" + String.Join(",",GetRow(rowIndex)) + "]");
 
-            Console.ReadLine();
+
+            string sValue = "ab#c", tValue = "ad#c";
+            Console.WriteLine("\r\n" + "844. Backspace String Compare  : " + BackspaceCompare(sValue, tValue) + "\r\n");
+
+
+           Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
         {
@@ -851,5 +857,32 @@ namespace DataStructre
             return rows;
         }
 
+        //844. Backspace String Compare
+
+        static bool BackspaceCompare(string s, string t)
+        {
+
+            return RemoveString(s) == RemoveString(t);
+        }
+
+
+        static string RemoveString(string str)
+        {
+            StringBuilder strBuilder = new StringBuilder();
+
+            foreach (char c in str)
+            {
+                if (c != '#')
+                {
+                    strBuilder.Append(c);
+
+                }
+                else if (strBuilder.Length > 0)
+                {
+                    strBuilder.Remove(strBuilder.Length - 1, 1);
+                }
+            }
+            return strBuilder.ToString();
+        }
     }
 }
