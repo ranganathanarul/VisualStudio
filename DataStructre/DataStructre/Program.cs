@@ -133,6 +133,8 @@ namespace DataStructre
             string sValue = "ab#c", tValue = "ad#c";
             Console.WriteLine("\r\n" + "844. Backspace String Compare  : " + BackspaceCompare(sValue, tValue) + "\r\n");
 
+            string  strValue1 = "anagram", strValue2 = "nagaram";
+            Console.WriteLine("242. Valid Anagram : " + IsAnagram(strValue1,strValue2) + "\r\n");
 
            Console.ReadLine();
         }
@@ -883,6 +885,18 @@ namespace DataStructre
                 }
             }
             return strBuilder.ToString();
+        }
+
+        static bool IsAnagram(string s, string t)
+        {
+            if (string.IsNullOrEmpty(s) || string.IsNullOrEmpty(t))
+                return false;
+
+            s=string.Concat(s.OrderBy(x => x));
+            t=string.Concat(t.OrderBy(x => x));
+
+            return s == t;
+
         }
     }
 }
