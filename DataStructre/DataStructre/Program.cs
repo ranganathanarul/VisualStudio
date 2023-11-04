@@ -136,6 +136,9 @@ namespace DataStructre
             string  strValue1 = "anagram", strValue2 = "nagaram";
             Console.WriteLine("242. Valid Anagram : " + IsAnagram(strValue1,strValue2) + "\r\n");
 
+            int[] numsValues = new int[] { 1, 2, 3, 1 };
+            Console.WriteLine("217. Contains Duplicate : " + ContainsDuplicate(numsValues) + "\r\n");
+
            Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -898,5 +901,22 @@ namespace DataStructre
             return s == t;
 
         }
+
+        //217. Contains Duplicate
+        static bool ContainsDuplicate(int[] nums)
+        {
+            if(nums.Length == 0 || nums ==null)
+                return false;
+
+            var hSet = new HashSet<int>(nums);
+
+            if (hSet.Count != nums.Length)
+                return true;
+            else
+                return false;
+
+
+        }
+
     }
 }
