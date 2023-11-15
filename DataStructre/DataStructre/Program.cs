@@ -139,7 +139,10 @@ namespace DataStructre
             int[] numsValues = new int[] { 1, 2, 3, 1 };
             Console.WriteLine("217. Contains Duplicate : " + ContainsDuplicate(numsValues) + "\r\n");
 
-           Console.ReadLine();
+            int[] numsValues1 = new int[] { 1, 2, 1 };
+            Console.WriteLine(" 1929. Concatenation of Array : " + GetConcatenation(numsValues1) + "\r\n");
+
+            Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
         {
@@ -916,6 +919,25 @@ namespace DataStructre
                 return false;
 
 
+        }
+
+        //1929. Concatenation of Array
+        static int[] GetConcatenation(int[] nums)
+        {
+            //Check null or empty
+            if (nums.Length == 0 || nums == null)
+                return null;
+
+            //Create the returnvalue array
+            int[] answerValue= new int[nums.Length*2];
+
+            for(int iCount=0;iCount<nums.Length;iCount++)
+            {
+                answerValue[iCount]=nums[iCount];
+                answerValue[iCount + 1] = nums[iCount];
+            }
+
+            return answerValue;
         }
 
     }
