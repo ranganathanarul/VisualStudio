@@ -142,6 +142,10 @@ namespace DataStructre
             int[] numsValues1 = new int[] { 1, 2, 1 };
             Console.WriteLine(" 1929. Concatenation of Array : " + GetConcatenation(numsValues1) + "\r\n");
 
+            string strvalue = "abc";
+            Console.WriteLine(" 3174. Clear Digits : "+ ClearDigits(strvalue) + "\r\n");
+
+
             Console.ReadLine();
         }
         static string RemoveDuplicateCharsInString(string inputStrValue)
@@ -938,6 +942,34 @@ namespace DataStructre
             }
 
             return answerValue;
+        }
+
+        //3174. Clear Digits
+
+        static string ClearDigits(string s)
+        {
+            //Check is null/empty
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            //Declaration
+            StringBuilder strBuilder = new StringBuilder(s);
+
+            //Loop through the value
+            for(int icount=1;icount< strBuilder.Length;)
+            {
+                //check the condition
+                if(char.IsDigit(strBuilder[icount]))
+                {
+                    strBuilder.Remove(icount, 1);
+                    strBuilder.Remove(icount - 1, 1);
+                    icount--;
+                }
+                else
+                    icount++;
+            }
+
+            //Return the results
+            return strBuilder.ToString();
         }
 
     }
