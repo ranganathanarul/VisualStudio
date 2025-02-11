@@ -30,16 +30,16 @@ namespace DataStructre
             Console.WriteLine("Running Sum of 1d Array : " + string.Join(" , ", RunningSum(ArrayNums)) + "\n");
 
             string s = "egg", t = "add";
-            Console.WriteLine("Isomorphic Strings: " + (IsIsomorphic(s, t) ? "True" : "False") );
+            Console.WriteLine("Isomorphic Strings: " + (IsIsomorphic(s, t) ? "True" : "False"));
 
-            int[] nums = new int[] { -2,3,4,7,8,9,11,13 };
+            int[] nums = new int[] { -2, 3, 4, 7, 8, 9, 11, 13 };
             int target = 11;
-            Console.WriteLine("Search Value in Array : " + SearchIndex(nums,target).ToString() + "\r\n");
+            Console.WriteLine("Search Value in Array : " + SearchIndex(nums, target).ToString() + "\r\n");
 
             string sn = "82734";
             Console.WriteLine("Decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros : " + MinPartitions(sn) + "\r\n");
 
-            int[][] boxTypes = new int[][] { 
+            int[][] boxTypes = new int[][] {
                     new int[] { 1, 2, 3 },
                     new int[] { 3, 2, 1 },
                 };
@@ -54,18 +54,18 @@ namespace DataStructre
 
             int[] arrNumbs = new int[] { 3, 8, 9, 7, 6 };
             int K = 3;
-            Console.WriteLine("CyclicRotation : " + string.Join(" , ",CyclicRotation(arrNumbs,K)) + "\r\n");
+            Console.WriteLine("CyclicRotation : " + string.Join(" , ", CyclicRotation(arrNumbs, K)) + "\r\n");
 
-            int[] numsArray = new int[] { 9,3,9,3,9,7,9};
+            int[] numsArray = new int[] { 9, 3, 9, 3, 9, 7, 9 };
             Console.WriteLine("Find value that occurs in odd number of elements. : " + OddOccurrencesInArray(numsArray) + "\r\n");
 
             int X = 10, Y = 85, D = 30;
-            Console.WriteLine("FrogJmp - Count minimal number of jumps from position X to Y. : " + solutionFrogJmp(X,Y,D) + "\r\n");
+            Console.WriteLine("FrogJmp - Count minimal number of jumps from position X to Y. : " + solutionFrogJmp(X, Y, D) + "\r\n");
 
             int[] missingElement = new int[] { 2, 3, 1, 5 };
             Console.WriteLine(" PermMissingElem - Find the missing element in a given permutation. : " + PermMissingElemSolution(missingElement) + "\r\n");
 
-            int[] numArrayTape = new int[] { 3,1,2,4,3 };
+            int[] numArrayTape = new int[] { 3, 1, 2, 4, 3 };
             Console.WriteLine(" TapeEquilibrium - Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|. : " + TapeEquilibriumSolutions(numsArray) + "\r\n");
 
             //Container With Most Water - You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
@@ -87,7 +87,7 @@ namespace DataStructre
             //946. Validate Stack Sequences
             int[] pushed = new int[] { 1, 2, 3, 4, 5 };
             int[] popped = new int[] { 4, 5, 3, 2, 1 };
-            Console.WriteLine(" 946. Validate Stack Sequences : " + ValidateStackSequences(pushed,popped) + "\r\n");
+            Console.WriteLine(" 946. Validate Stack Sequences : " + ValidateStackSequences(pushed, popped) + "\r\n");
 
             //258. Add Digits
             int num = 38;
@@ -104,7 +104,7 @@ namespace DataStructre
             //2215. Find the Difference of Two Arrays
             int[] nums1 = new int[] { 1, 2, 3 };
             int[] nums2 = new int[] { 2, 4, 6 };
-            foreach( var Obj in FindDifference(nums1, nums2).SelectMany(lValue=> lValue.Select(obj => obj)))
+            foreach (var Obj in FindDifference(nums1, nums2).SelectMany(lValue => lValue.Select(obj => obj)))
             {
                 Console.WriteLine("2215. Find the Difference of Two Arrays :  " + Obj);
             }
@@ -115,7 +115,7 @@ namespace DataStructre
 
             //1456. Maximum Number of Vowels in a Substring of Given Length
             string sValues = "abciiidef"; int k = 3;
-            Console.WriteLine("\r\n" + "1456. Maximum Number of Vowels in a Substring of Given Length : " + MaxVowels(sValues,k));
+            Console.WriteLine("\r\n" + "1456. Maximum Number of Vowels in a Substring of Given Length : " + MaxVowels(sValues, k));
 
             int[][] mat = new int[][]
             {
@@ -127,14 +127,14 @@ namespace DataStructre
             Console.WriteLine("\r\n" + "1572. Matrix Diagonal Sum : " + DiagonalSum(mat));
 
             int rowIndex = 0;
-            Console.WriteLine("\r\n" + "119. Pascal's Triangle II : [" + String.Join(",",GetRow(rowIndex)) + "]");
+            Console.WriteLine("\r\n" + "119. Pascal's Triangle II : [" + String.Join(",", GetRow(rowIndex)) + "]");
 
 
             string sValue = "ab#c", tValue = "ad#c";
             Console.WriteLine("\r\n" + "844. Backspace String Compare  : " + BackspaceCompare(sValue, tValue) + "\r\n");
 
-            string  strValue1 = "anagram", strValue2 = "nagaram";
-            Console.WriteLine("242. Valid Anagram : " + IsAnagram(strValue1,strValue2) + "\r\n");
+            string strValue1 = "anagram", strValue2 = "nagaram";
+            Console.WriteLine("242. Valid Anagram : " + IsAnagram(strValue1, strValue2) + "\r\n");
 
             int[] numsValues = new int[] { 1, 2, 3, 1 };
             Console.WriteLine("217. Contains Duplicate : " + ContainsDuplicate(numsValues) + "\r\n");
@@ -143,7 +143,10 @@ namespace DataStructre
             Console.WriteLine(" 1929. Concatenation of Array : " + GetConcatenation(numsValues1) + "\r\n");
 
             string strvalue = "abc";
-            Console.WriteLine(" 3174. Clear Digits : "+ ClearDigits(strvalue) + "\r\n");
+            Console.WriteLine(" 3174. Clear Digits : " + ClearDigits(strvalue) + "\r\n");
+
+            string svalues1 = "daabcbaabcbc", svalue2 = "abc";
+            Console.WriteLine(" 1910. Remove All Occurrences of a Substring : " + RemoveOccurrences(svalues1,svalue2) + "\r\n");
 
 
             Console.ReadLine();
@@ -285,20 +288,20 @@ namespace DataStructre
 
         }
 
-        static int SearchIndex(int[] nums,int target)
+        static int SearchIndex(int[] nums, int target)
         {
 
             if (nums == null || nums.Length == 0)
                 return 0;
 
             //Declartion
-            int middle = 0, left = 0,right;
+            int middle = 0, left = 0, right;
 
             Array.Sort(nums);
-            
+
             right = nums.Length - 1;
 
-            while(left<=right)
+            while (left <= right)
             {
                 middle = (left + right) / 2;
                 if (nums[middle] == target)
@@ -377,7 +380,7 @@ namespace DataStructre
             }
             return nums;
         }
-        
+
         static int BinaryGap(int N)
         {
             if (N == 0)
@@ -385,11 +388,11 @@ namespace DataStructre
 
             //Declaration
             int count = 0, maxCount = 0;
-            var nums = Convert.ToString(N,2);
+            var nums = Convert.ToString(N, 2);
 
-            for(int iCount=0;iCount<nums.Length;iCount++)
+            for (int iCount = 0; iCount < nums.Length; iCount++)
             {
-                if(nums[iCount]=='0')
+                if (nums[iCount] == '0')
                 {
                     count++;
                 }
@@ -402,12 +405,12 @@ namespace DataStructre
             return maxCount;
         }
 
-        static int[] CyclicRotation(int[] A,int k)
+        static int[] CyclicRotation(int[] A, int k)
         {
             if (A == null || A.Length == 0)
                 return A;
-          
-            for(int jCount=0; jCount < k; jCount++)
+
+            for (int jCount = 0; jCount < k; jCount++)
             {
                 var current = A[0];
                 var next = A[1];
@@ -430,7 +433,7 @@ namespace DataStructre
                 return 0;
 
             int resultXor = nums[0];
-            for(int iCount=1;iCount<nums.Length;iCount++)
+            for (int iCount = 1; iCount < nums.Length; iCount++)
             {
                 resultXor ^= nums[iCount];
             }
@@ -438,11 +441,11 @@ namespace DataStructre
             return resultXor;
         }
 
-        static int solutionFrogJmp(int X,int Y,int D)
+        static int solutionFrogJmp(int X, int Y, int D)
         {
             int iCount = 0;
 
-            while(X<Y)
+            while (X < Y)
             {
                 X += D;
                 iCount++;
@@ -457,9 +460,9 @@ namespace DataStructre
 
             int missingElement = A[0] ^ 1;
 
-            for (int icount=1;icount<A.Length;icount++)
+            for (int icount = 1; icount < A.Length; icount++)
             {
-                missingElement ^=  A[icount] ^ (icount + 1);
+                missingElement ^= A[icount] ^ (icount + 1);
             }
 
             return missingElement ^ (A.Length + 1);
@@ -504,12 +507,12 @@ namespace DataStructre
             int maxResult = 0, left = 0, right = height.Length - 1;
 
             // Array Left and Right
-            while(left < right)
+            while (left < right)
             {
-                if(height[left] < height[right])
+                if (height[left] < height[right])
                 {
                     //Find out the index
-                    var arrayIndex = Math.Min(height[right],height[left])*(right-left);
+                    var arrayIndex = Math.Min(height[right], height[left]) * (right - left);
                     maxResult = Math.Max(maxResult, arrayIndex);
                     left++;
                 }
@@ -530,7 +533,7 @@ namespace DataStructre
 
             Stack<char> stValue = new Stack<char>();
 
-            foreach(var items in s.ToCharArray())
+            foreach (var items in s.ToCharArray())
             {
                 if (items == '(')
                     stValue.Push(')');
@@ -540,7 +543,7 @@ namespace DataStructre
                     stValue.Push(']');
                 else if (stValue.Count == 0 || stValue.Pop() != items)
                     return false;
-              
+
             }
             return stValue.Count == 0;
         }
@@ -587,14 +590,14 @@ namespace DataStructre
             var dirList = new List<string>();
 
             //Loop the check the value is present or not.
-            foreach(var dir in dirs)
+            foreach (var dir in dirs)
             {
-                if(dir.Equals(".."))
+                if (dir.Equals(".."))
                 {
-                    if(dirList.Count >0)
+                    if (dirList.Count > 0)
                         dirList.RemoveAt(dirList.Count - 1);
                 }
-                else if(!string.IsNullOrEmpty(dir))
+                else if (!string.IsNullOrEmpty(dir))
                 {
                     if (!dir.Equals("."))
                         dirList.Add(dir);
@@ -615,10 +618,10 @@ namespace DataStructre
             Stack<int> number_stack = new Stack<int>();
             int jCount = 0;
 
-            foreach(int iCount in pushed)
+            foreach (int iCount in pushed)
             {
                 number_stack.Push(iCount);
-                while(number_stack.Count > 0 && jCount < popped.Length && number_stack.Peek() == popped[jCount])
+                while (number_stack.Count > 0 && jCount < popped.Length && number_stack.Peek() == popped[jCount])
                 {
                     number_stack.Pop();
                     jCount++;
@@ -634,12 +637,12 @@ namespace DataStructre
             if (string.IsNullOrEmpty(num.ToString()))
                 return 0;
 
-            while(num/10!=0)
+            while (num / 10 != 0)
             {
                 // Assign the values
                 int fullnumber = num;
                 num = 0;
-                while(fullnumber>0)
+                while (fullnumber > 0)
                 {
                     num += fullnumber % 10;
                     fullnumber /= 10;
@@ -650,10 +653,10 @@ namespace DataStructre
         }
         static int BulbSwitch(int n)
         {
-                if (string.IsNullOrEmpty(n.ToString()))
-                    return n;
+            if (string.IsNullOrEmpty(n.ToString()))
+                return n;
 
-                return (int)Math.Sqrt(n);
+            return (int)Math.Sqrt(n);
         }
 
         static double Average(int[] salary)
@@ -693,7 +696,7 @@ namespace DataStructre
             int result = 1;
 
             //Looping the value in numbers
-           foreach(var num in nums)
+            foreach (var num in nums)
             {
                 if (num == 0)
                 {
@@ -807,14 +810,14 @@ namespace DataStructre
             int ansValue = 0, cuntValue = 0;
 
             //Loop the values
-            for (int iCount=0,jCount=0; iCount < s.Length; iCount++)
+            for (int iCount = 0, jCount = 0; iCount < s.Length; iCount++)
             {
                 if (IsVowel(s[iCount]))
                     cuntValue++;
-                
-                if(iCount - jCount + 1 == k)
+
+                if (iCount - jCount + 1 == k)
                 {
-                    ansValue=Math.Max(ansValue,cuntValue);
+                    ansValue = Math.Max(ansValue, cuntValue);
                     if (IsVowel(s[jCount++]))
                     {
                         cuntValue--;
@@ -833,7 +836,7 @@ namespace DataStructre
         static int DiagonalSum(int[][] mat)
         {
             // Input Value check 
-            if (mat==null || mat.Length == 0)
+            if (mat == null || mat.Length == 0)
                 return 0;
 
             //Decalaration
@@ -850,16 +853,16 @@ namespace DataStructre
         //119. Pascal's Triangle II
         static IList<int> GetRow(int rowIndex)
         {
-            if(rowIndex <0)
+            if (rowIndex < 0)
                 return null;
             //Declare the return Value
             IList<int> rows = new List<int>();
 
-            for(int iCount=0; iCount <= rowIndex; iCount++)
+            for (int iCount = 0; iCount <= rowIndex; iCount++)
             {
                 rows.Add(1);
 
-                for(int jCount= iCount - 1;jCount>0;jCount--)
+                for (int jCount = iCount - 1; jCount > 0; jCount--)
                 {
                     rows[jCount] += rows[jCount - 1];
                 }
@@ -902,8 +905,8 @@ namespace DataStructre
             if (string.IsNullOrEmpty(s) || string.IsNullOrEmpty(t))
                 return false;
 
-            s=string.Concat(s.OrderBy(x => x));
-            t=string.Concat(t.OrderBy(x => x));
+            s = string.Concat(s.OrderBy(x => x));
+            t = string.Concat(t.OrderBy(x => x));
 
             return s == t;
 
@@ -912,7 +915,7 @@ namespace DataStructre
         //217. Contains Duplicate
         static bool ContainsDuplicate(int[] nums)
         {
-            if(nums.Length == 0 || nums ==null)
+            if (nums.Length == 0 || nums == null)
                 return false;
 
             var hSet = new HashSet<int>(nums);
@@ -933,11 +936,11 @@ namespace DataStructre
                 return null;
 
             //Create the returnvalue array
-            int[] answerValue= new int[nums.Length*2];
+            int[] answerValue = new int[nums.Length * 2];
 
-            for(int iCount=0;iCount<nums.Length;iCount++)
+            for (int iCount = 0; iCount < nums.Length; iCount++)
             {
-                answerValue[iCount]=nums[iCount];
+                answerValue[iCount] = nums[iCount];
                 answerValue[iCount + 1] = nums[iCount];
             }
 
@@ -955,10 +958,10 @@ namespace DataStructre
             StringBuilder strBuilder = new StringBuilder(s);
 
             //Loop through the value
-            for(int icount=1;icount< strBuilder.Length;)
+            for (int icount = 1; icount < strBuilder.Length;)
             {
                 //check the condition
-                if(char.IsDigit(strBuilder[icount]))
+                if (char.IsDigit(strBuilder[icount]))
                 {
                     strBuilder.Remove(icount, 1);
                     strBuilder.Remove(icount - 1, 1);
@@ -972,5 +975,29 @@ namespace DataStructre
             return strBuilder.ToString();
         }
 
+
+
+        //1910. Remove All Occurrences of a Substring
+        static string RemoveOccurrences(string s, string part)
+        {
+            // check the i/p string is null/empty.
+            if (string.IsNullOrEmpty(s) || string.IsNullOrEmpty(part))
+                return part;
+
+            //stringBuilder for efficient string manipulation
+            StringBuilder strBuilder = new StringBuilder(s);
+
+            int index = strBuilder.ToString().IndexOf(part);
+
+            while (index != -1)
+            {
+                //Remove leftmost occurrence of the substring 'part'
+                strBuilder.Remove(index, part.Length);
+
+                //Find the next occurrence of 'part'
+                index = strBuilder.ToString().IndexOf(part);
+            }
+            return strBuilder.ToString();
+        }
     }
 }
