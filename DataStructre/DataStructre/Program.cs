@@ -140,13 +140,16 @@ namespace DataStructre
             Console.WriteLine("217. Contains Duplicate : " + ContainsDuplicate(numsValues) + "\r\n");
 
             int[] numsValues1 = new int[] { 1, 2, 1 };
-            Console.WriteLine(" 1929. Concatenation of Array : " + GetConcatenation(numsValues1) + "\r\n");
+            Console.WriteLine("1929. Concatenation of Array : " + GetConcatenation(numsValues1) + "\r\n");
 
             string strvalue = "abc";
-            Console.WriteLine(" 3174. Clear Digits : " + ClearDigits(strvalue) + "\r\n");
+            Console.WriteLine("3174. Clear Digits : " + ClearDigits(strvalue) + "\r\n");
 
             string svalues1 = "daabcbaabcbc", svalue2 = "abc";
-            Console.WriteLine(" 1910. Remove All Occurrences of a Substring : " + RemoveOccurrences(svalues1,svalue2) + "\r\n");
+            Console.WriteLine("1910. Remove All Occurrences of a Substring : " + RemoveOccurrences(svalues1, svalue2) +"\r\n");
+
+            int nthValue = 10;
+            Console.WriteLine("2698. Find the Punishment Number of an Integer : " + PunishmentNumber(nthValue)  +"\r\n");
 
 
             Console.ReadLine();
@@ -998,6 +1001,51 @@ namespace DataStructre
                 index = strBuilder.ToString().IndexOf(part);
             }
             return strBuilder.ToString();
+        }
+
+
+        //2698. Find the Punishment Number of an Integer
+
+        static int PunishmentNumber(int n)
+        {
+            //Check the input values 
+            if (n == null || n == 0)
+                return 0;
+
+            int outResult = 1;
+            for (int iCount = 9; iCount <= n; iCount++)
+            {
+                //Decalaration
+                int pNumber = iCount * iCount;
+
+                //Check the value number can be abe to split it.
+                if (CanSplitToNumbers(pNumber, iCount)) { 
+                    outResult += pNumber; 
+                }
+            }
+           
+            return outResult;
+
+            static bool CanSplitToNumbers(int pNumber, int iCount)
+            {
+                //Check the punishment number and output number.
+                if (pNumber == iCount) 
+                        return true;
+
+                for (int decValue = 10; decValue < pNumber; decValue *= 10)
+                {
+                    //Calculates the quotient of two numbers and also returns the remainder in an output parameter.
+                    int outpValueq = Math.DivRem(pNumber, decValue, out int rempResult);
+
+                    if (outpValueq <= iCount && CanSplitToNumbers(rempResult, iCount - outpValueq))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+
         }
     }
 }
