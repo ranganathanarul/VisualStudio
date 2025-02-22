@@ -1044,8 +1044,23 @@ namespace DataStructre
                 }
                 return false;
             }
+        }
+        //190. Reverse Bits
+        static uint reverseBits(uint n)
+        {
+            // check the input is valid
+            if (n == null || n == 0)
+                return 0;
+            //Declaration
+            uint outResults =0;
 
+            for (int iCount = 0; iCount < 32; iCount++)
+            {
+                outResults = (outResults << 1) | (n & 1);
+                n >>= 1;
+            }
 
+            return outResults;
         }
     }
 }
