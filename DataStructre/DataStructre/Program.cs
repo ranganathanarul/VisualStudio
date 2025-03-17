@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace DataStructre
@@ -151,6 +152,8 @@ namespace DataStructre
             int nthValue = 10;
             Console.WriteLine("2698. Find the Punishment Number of an Integer : " + PunishmentNumber(nthValue)  +"\r\n");
 
+            uint  nthValue1 = 0000001010010100;
+            Console.WriteLine("190. Reverse Bits : " + reverseBits(nthValue1) + "\r\n");
 
             Console.ReadLine();
         }
