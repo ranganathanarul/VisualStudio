@@ -10,7 +10,7 @@ namespace DataStructre
     class Program
     {
         [STAThread]
-        void Main(string[] args)
+        static void Main(string[] args)
         {
             //Remove Duplicte in  String 
             Console.WriteLine("Remove the Duplicate Value : " + RemoveDuplicateCharsInString("Remove Duplicate Value") + "\n");
@@ -156,8 +156,12 @@ namespace DataStructre
             uint  nthValue1 = 0000001010010100;
             Console.WriteLine("190. Reverse Bits : " + reverseBits(nthValue1) + "\r\n");
 
-            int[] numsValue2 = new int[] { 1, 3 };
-            Console.WriteLine("1863. Sum of All Subset XOR Totals" + SubsetXORSum(numsValue2) + "\r\n");
+            //int[] numsValue2 = new int[] { 1, 3 };
+            //Console.WriteLine("1863. Sum of All Subset XOR Totals" + SubsetXORSum(numsValue2) + "\r\n");
+
+            string strWord = "aabcaba";
+            int kthValue1 = 0;
+            Console.WriteLine(" 3085. Minimum Deletions to Make String K-Special " + MinimumDeletions(strWord, kthValue1) + "\r\n");
 
             Console.ReadLine();
         }
@@ -1090,6 +1094,39 @@ namespace DataStructre
             }
             traverse(nums, index + 1, currentXOR ^ nums[index], ref results);
             traverse(nums, index + 1, currentXOR, ref results);
+        }
+
+        static int MinimumDeletions(string word, int k)
+        {
+            Span<int> cValues = stackalloc int[26];//*Initialize frequency span.
+            int length = word.Length,
+            min = Int32.MaxValue;
+
+            for (int iCount = 0; iCount < length; iCount++) //*Add every char to frequency span.
+                cValues[word[iCount] - 97]++;
+
+            for (int iCounts = 0; iCounts < 26; iCounts++)
+            {
+                int cur = cValues[iCounts];
+                if (cur == 0) continue; //* Skip empty frequencies.
+
+                int dlValue = 0;
+
+                for (int jCount = 0; jCount < 26; jCount++)
+                {
+                    int tValue = cValues[jCount];
+                    if (tValue == 0) continue; //* Skip empty frequencies.
+
+                    /* if "Temp" is bigger than "Current" add "Temp"
+                    * else if distance between "Current" and "Temp" is bigger than "k" add "Temp" - "Current" - "k"
+                    * else add 0 */
+                    dlValue += cur > tValue ? tValue : tValue - cur - k > 0 ? tValue - cur - k : 0;
+                }
+
+                if (dlValue < min) min = dlValue; //* Update the result value.
+            }
+
+            return min;
         }
     }
 }
