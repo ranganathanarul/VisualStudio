@@ -9,7 +9,8 @@ namespace DataStructre
 {
     class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        void Main(string[] args)
         {
             //Remove Duplicte in  String 
             Console.WriteLine("Remove the Duplicate Value : " + RemoveDuplicateCharsInString("Remove Duplicate Value") + "\n");
@@ -154,6 +155,9 @@ namespace DataStructre
 
             uint  nthValue1 = 0000001010010100;
             Console.WriteLine("190. Reverse Bits : " + reverseBits(nthValue1) + "\r\n");
+
+            int[] numsValue2 = new int[] { 1, 3 };
+            Console.WriteLine("1863. Sum of All Subset XOR Totals" + SubsetXORSum(numsValue2) + "\r\n");
 
             Console.ReadLine();
         }
@@ -1064,6 +1068,28 @@ namespace DataStructre
             }
 
             return outResults;
+        }
+
+        //1863. Sum of All Subset XOR Totals
+        int SubsetXORSum(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+                return 0;
+
+            int results = 0;
+            traverse(nums, 0, 0, ref results);
+            return results;
+
+        }
+        void traverse(int[] nums, int index, int currentXOR, ref int results)
+        {
+            if (index == nums.Length)
+            {
+                results += currentXOR;
+                return;
+            }
+            traverse(nums, index + 1, currentXOR ^ nums[index], ref results);
+            traverse(nums, index + 1, currentXOR, ref results);
         }
     }
 }
