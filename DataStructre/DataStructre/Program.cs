@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using static System.Net.WebRequestMethods;
 
 namespace DataStructre
 {
@@ -148,12 +149,12 @@ namespace DataStructre
             Console.WriteLine("3174. Clear Digits : " + ClearDigits(strvalue) + "\r\n");
 
             string svalues1 = "daabcbaabcbc", svalue2 = "abc";
-            Console.WriteLine("1910. Remove All Occurrences of a Substring : " + RemoveOccurrences(svalues1, svalue2) +"\r\n");
+            Console.WriteLine("1910. Remove All Occurrences of a Substring : " + RemoveOccurrences(svalues1, svalue2) + "\r\n");
 
             int nthValue = 10;
-            Console.WriteLine("2698. Find the Punishment Number of an Integer : " + PunishmentNumber(nthValue)  +"\r\n");
+            Console.WriteLine("2698. Find the Punishment Number of an Integer : " + PunishmentNumber(nthValue) + "\r\n");
 
-            uint  nthValue1 = 0000001010010100;
+            uint nthValue1 = 0000001010010100;
             Console.WriteLine("190. Reverse Bits : " + reverseBits(nthValue1) + "\r\n");
 
             //int[] numsValue2 = new int[] { 1, 3 };
@@ -162,6 +163,11 @@ namespace DataStructre
             string strWord = "aabcaba";
             int kthValue1 = 0;
             Console.WriteLine(" 3085. Minimum Deletions to Make String K-Special " + MinimumDeletions(strWord, kthValue1) + "\r\n");
+
+            string sthvalue = "abcdefghi";
+            char fill = 'x';
+            int kthvalue = 3;
+            Console.WriteLine("2138. Divide a String Into Groups of Size k : ['" + string.Join(", ", DivideString(sthvalue, kthvalue, fill)) + "']\r\n");
 
             Console.ReadLine();
         }
@@ -1030,18 +1036,19 @@ namespace DataStructre
                 int pNumber = iCount * iCount;
 
                 //Check the value number can be abe to split it.
-                if (CanSplitToNumbers(pNumber, iCount)) { 
-                    outResult += pNumber; 
+                if (CanSplitToNumbers(pNumber, iCount))
+                {
+                    outResult += pNumber;
                 }
             }
-           
+
             return outResult;
 
             static bool CanSplitToNumbers(int pNumber, int iCount)
             {
                 //Check the punishment number and output number.
-                if (pNumber == iCount) 
-                        return true;
+                if (pNumber == iCount)
+                    return true;
 
                 for (int decValue = 10; decValue < pNumber; decValue *= 10)
                 {
@@ -1063,7 +1070,7 @@ namespace DataStructre
             if (n == null || n == 0)
                 return 0;
             //Declaration
-            uint outResults =0;
+            uint outResults = 0;
 
             for (int iCount = 0; iCount < 32; iCount++)
             {
@@ -1127,6 +1134,36 @@ namespace DataStructre
             }
 
             return min;
+        }
+
+        //2138. Divide a String Into Groups of Size k
+        static string[] DivideString(string s, int k, char fill)
+        {
+            
+            int groups = (s.Length + k - 1) / k; // Ceiling division to get total groups
+            String[] result = new String[groups];
+
+            int index = 0;
+            for (int iCount = 0; iCount < groups; iCount++)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                for (int jCount = 0; jCount < k; jCount++)
+                {
+                    if (index < s.Length)
+                    {
+                        sb.Append(s[index++]);
+                    }
+                    else
+                    {
+                        sb.Append(fill);
+                    }
+                }
+
+                result[iCount] = sb.ToString();
+            }
+
+            return result;
         }
     }
 }
