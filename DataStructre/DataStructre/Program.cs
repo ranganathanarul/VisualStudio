@@ -10,7 +10,6 @@ namespace DataStructre
 {
     class Program
     {
-        [STAThread]
         static void Main(string[] args)
         {
             //Remove Duplicte in  String 
@@ -168,6 +167,9 @@ namespace DataStructre
             char fill = 'x';
             int kthvalue = 3;
             Console.WriteLine("2138. Divide a String Into Groups of Size k : ['" + string.Join(", ", DivideString(sthvalue, kthvalue, fill)) + "']\r\n");
+
+            int[] numstValues = new int[] { 2, 4, 1, 1, 6, 5 };
+            Console.WriteLine(" 2210. Count Hills and Valleys in an Array : " + CountHillValley(numstValues) + "\r\n");
 
             Console.ReadLine();
         }
@@ -1139,7 +1141,7 @@ namespace DataStructre
         //2138. Divide a String Into Groups of Size k
         static string[] DivideString(string s, int k, char fill)
         {
-            
+
             int groups = (s.Length + k - 1) / k; // Ceiling division to get total groups
             String[] result = new String[groups];
 
@@ -1164,6 +1166,39 @@ namespace DataStructre
             }
 
             return result;
+        }
+        static int CountHillValley(int[] nums)
+        {
+            int rCount = 0;
+            if (nums == null || nums.Length == 0)
+                return rCount;
+
+            for (int i = 1; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == nums[i - 1])
+                {
+                    continue;
+                }
+                int left = i - 1;
+                int right = i + 1;
+                while (left >= 0 && nums[left] == nums[i])
+                {
+                    left--;
+                }
+                while (right < nums.Length && nums[right] == nums[i])
+                {
+                    right++;
+                }
+                left = left >= 0 ? nums[left] : nums[i];
+                right = right < nums.Length ? nums[right] : nums[i];
+
+                if ((nums[i] > left && nums[i] > right) || (nums[i] < left && nums[i] < right))
+                {
+                    rCount++;
+                }
+
+            }
+            return rCount;
         }
     }
 }
